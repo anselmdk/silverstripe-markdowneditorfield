@@ -92,7 +92,7 @@
 				$(iframe).contents().find('#markdown_PreviewButton').trigger('click');
 				this.addClass('md-refresh')
 				if(this.getOpen() == false) {
-					this.parent().append($('<a>').addClass('md-button md-close').attr('title', 'Close the Preview window.'));
+					this.parent().append($('<a style="width:auto;">Close</a>').addClass('md-button md-close').attr('title', 'Close the Preview window.'));
 					this.setOpen(true);
 				}
 			},
