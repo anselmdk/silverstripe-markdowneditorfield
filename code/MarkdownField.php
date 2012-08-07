@@ -5,8 +5,8 @@ class MarkdownField extends TextareaField {
 	static $editortheme = 'twilight';
 	function Field($properties = array()) {
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
-		Requirements::javascript('markdown/javascript/markdownField.js');
-		Requirements::css('markdown/css/md.css');
+		Requirements::javascript('markdowneditorfield/javascript/markdownField.js');
+		Requirements::css('markdowneditorfield/css/md.css');
 
 		if($this->disabled) $attributes['disabled'] = 'disabled';
 		$properties["class"] = "markdown_Input";
@@ -58,8 +58,8 @@ class MarkdownField extends TextareaField {
 	}
 
 	function getconvertedhtml() {
-		require_once('lib/markdown/markdown.php');
-		require_once('lib/markdown/markdown_extended.php');
+		require_once(Director::baseFolder() . '/markdowneditorfield/code/lib/markdown/markdown.php');
+		require_once(Director::baseFolder() . '/markdowneditorfield/code/lib/markdown/markdown_extended.php');
 		$text = $this->request["text"];
 		return MarkdownExtended($text);
 	}
@@ -74,20 +74,20 @@ class MarkdownField extends TextareaField {
 		Requirements::javascript('sapphire/javascript/HtmlEditorField.js');
 
 
-		Requirements::javascript('markdown/javascript/lib/jquery.ui.autocomplete.html.js');
-		Requirements::javascript('markdown/javascript/lib/showdown.js');
-		Requirements::javascript('markdown/javascript/lib/ace/src/ace.js');
-		Requirements::javascript('markdown/javascript/lib/ace/src/mode-markdown.js');
-		Requirements::javascript('markdown/javascript/lib/ace/src/theme-' . self::$editortheme . '.js');
+		Requirements::javascript('markdowneditorfield/javascript/lib/jquery.ui.autocomplete.html.js');
+		Requirements::javascript('markdowneditorfield/javascript/lib/showdown.js');
+		Requirements::javascript('markdowneditorfield/javascript/lib/ace/src/ace.js');
+		Requirements::javascript('markdowneditorfield/javascript/lib/ace/src/mode-markdown.js');
+		Requirements::javascript('markdowneditorfield/javascript/lib/ace/src/theme-' . self::$editortheme . '.js');
 
 
-		Requirements::javascript('markdown/javascript/lib/highlight/src/highlight.pack.js');
-		Requirements::css('markdown/javascript/lib/highlight/src/styles/github.css');
+		Requirements::javascript('markdowneditorfield/javascript/lib/highlight/src/highlight.pack.js');
+		Requirements::css('markdowneditorfield/javascript/lib/highlight/src/styles/github.css');
 
-		Requirements::javascript('markdown/javascript/markdownEditor.js');
+		Requirements::javascript('markdowneditorfield/javascript/markdownEditor.js');
 
 		Requirements::themedCSS('typography');
-		Requirements::css('markdown/css/md.css');
+		Requirements::css('markdowneditorfield/css/md.css');
 		//Requirements::css(THIRDPARTY_DIR . '/jquery-ui-themes/smoothness/jquery-ui.css');
 
 		$properties["LinkSuggest"] = 'linksuggest';
